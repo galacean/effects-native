@@ -1,0 +1,141 @@
+# Operating System Files
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+
+# C++ Files
+###########
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+# Executables
+*.exe
+*.out
+*.app
+
+# CMake Files
+#############
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile
+*.make
+*.cmake
+*.cmake.policy
+
+# Build folders
+###############
+build/
+Release/
+Debug/
+x64/
+x86/
+bld/
+[Bb]in
+[Oo]bj
+
+# Android/JDK
+#############
+# Gradle files
+.gradle/
+/build/
+
+# Android Studio files
+.idea/
+*.iml
+local.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# Android NDK
+obj/
+.cxx/
+
+# Android build output
+*.apk
+*.ap_
+*.aab
+
+# iOS/Xcode
+############
+# Xcode
+.DS_Store
+*.xccheckout
+*.xcscmblueprint
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.moved-aside
+*.xcworkspace
+!default.xcworkspace
+
+# CocoaPods
+Pods/
+*.podspec.json
+Podfile.lock
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/*
+fastlane/test_output
+
+# Code Injection
+injectionforxcode/
+
+# Visual Studio Code
+####################
+.vscode/
+*.code-workspace
+
+# Miscellaneous files
+#####################
+# Logs
+*.log
+*.tlog
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.userprefs
+# Project-specific files
+*.pidb
+*.sdf
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Ignore node modules folder in the root of the project
+/node_modules/
+
+# Ignore Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore all coverage files.
+*.coverage
+coverage.xml
+
+# Ignore all testoutput files
+testoutput/

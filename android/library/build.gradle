@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    
+    defaultConfig {
+        minSdkVersion 14 
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a"
+        }
+
+        externalNativeBuild {
+            cmake {
+                arguments '-DANDROID_STL=c++_shared', "-DANDROID=TRUE", "-DBUILD_OSS=TRUE"//, "-DSANITIZE=1"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "../../core/CMakeLists.txt"
+        }
+    }
+
+    packagingOptions {
+        exclude '**/armeabi-v7a/libc++_shared.so'
+        exclude '**/arm64-v8a/libc++_shared.so'
+        exclude '**/armeabi-v7a/libmfproducts4x.so'
+        exclude '**/arm64-v8a/libmfproducts4x.so'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'adapter_oss/src/main/java'
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "galaceanEffects.aar"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // apt 'com.alipay.android.tools:androidannotations:2.7.1@jar'
+    // compileOnly 'com.alipay.android.phone.thirdparty:androidsupport-api:13.23@jar'
+    // compileOnly 'com.alipay.android.phone.thirdparty:androidannotations-api:2.7.1@jar'
+
+    compileOnly 'com.android.support:support-annotations:28.0.0'
+
+    compileOnly "com.squareup.okhttp3:okhttp:3.10.0"
+    compileOnly 'com.alibaba:fastjson:1.2.76'
+}
+
+clean {
+    delete fileTree(dir: 'build')
+}

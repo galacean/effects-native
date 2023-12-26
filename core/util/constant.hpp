@@ -1,0 +1,162 @@
+//
+//  constant.hpp
+//
+//  Created by Zongming Liu on 2022/1/18.
+//
+
+#ifndef constant_hpp
+#define constant_hpp
+
+#include <stdio.h>
+#include <stdint.h>
+
+namespace mn {
+
+enum PARTICLE_ORIGIN_TYPE {
+    PARTICLE_ORIGIN_CENTER = 0,
+    PARTICLE_ORIGIN_CENTER_BOTTOM = 5,
+    PARTICLE_ORIGIN_CENTER_TOP = 4,
+    PARTICLE_ORIGIN_LEFT_TOP = 1,
+    PARTICLE_ORIGIN_LEFT_CENTER = 2,
+    PARTICLE_ORIGIN_LEFT_BOTTOM = 3,
+    PARTICLE_ORIGIN_RIGHT_CENTER = 7,
+    PARTICLE_ORIGIN_RIGHT_BOTTOM = 8,
+    PARTICLE_ORIGIN_RIGHT_TOP = 6,
+};
+PARTICLE_ORIGIN_TYPE CreateParticleOriginType(int value);
+
+
+enum RENDER_MODE_TYPE {
+    RENDER_MODE_BILLBOARD = 0,
+    RENDER_MODE_MESH,
+    RENDER_MODE_VERTICAL_BILLBOARD,
+    RENDER_MODE_HORIZONTAL_BILLBOARD
+};
+RENDER_MODE_TYPE CreateRenderModeType(int value);
+
+
+enum MASK_MODE_TYPE {
+    MASK_MODE_NONE = 0,
+    MASK_MODE_WRITE_MASK,
+    MASK_MODE_READ_MASK,
+    MASK_MODE_READ_INVERT_MASK
+};
+
+MASK_MODE_TYPE CreateMaskModeType(int value);
+
+enum BLEND_MODE_TYPE {
+    BLEND_MODE_ALPHA = 0,
+    BLEND_MODE_ADDITIVE,
+    BLEND_MODE_MULTIPLY,
+    BLEND_MODE_LUMINANCE_ALPHA,
+    BLEND_MODE_SUBTRACT,
+    BLEND_MODE_ADD_LIGHT,
+    BLEND_MODE_LIGHT,
+    BLEND_MODE_LUMINANCE_ADDITIVE
+};
+BLEND_MODE_TYPE CreateBlendModeType(int value);
+
+
+
+
+
+enum END_BEHAVIOR_TYPE {
+    END_BEHAVIOR_DESTROY = 0,
+    END_BEHAVIOR_PAUSE,
+    END_BEHAVIOR_FORWARD,
+    END_BEHAVIOR_PAUSE_AND_DESTROY,
+    END_BEHAVIOR_FREEZE,
+    END_BEHAVIOR_RESTART,
+    END_BEHAVIOR_DESTROY_CHILDREN
+};
+END_BEHAVIOR_TYPE CreateEndBehaviorType(int value);
+
+
+enum ARC_MODE_TYPE {
+    ARC_MODE_RANDOM = 0,
+    ARC_MODE_LOOP,
+    ARC_MODE_PINGPONG,
+    ARC_MODE_BURST_SPREAD
+};
+ARC_MODE_TYPE CreateArcModeType(int value);
+
+enum RENDER_LEVEL {
+    RENDER_LEVEL_B_PLUS = 0x7,
+    RENDER_LEVEL_B = 0x1,
+    RENDER_LEVEL_A_PLUS = 0x6,
+    RENDER_LEVEL_A = 0x2,
+    RENDER_LEVEL_S = 0x4,
+};
+RENDER_LEVEL CreateRenderLevel(const char* value);
+
+enum SIDE_MODE_TYPE {
+    SIDE_BOTH = 1032,
+    SIDE_FRONT = 1028,
+    SIDE_BACK = 1029,
+};
+SIDE_MODE_TYPE CreateSideModeType(int value);
+
+const float DEG2RAG = 3.141592653589793 / 180;
+
+const size_t UNIFORM_VEC2_BYTESIZE = 2 * sizeof(float);
+const size_t UNIFORM_VEC3_BYTESIZE = 3 * sizeof(float);
+const size_t UNIFORM_VEC4_BYTESIZE = 4 * sizeof(float);
+
+const size_t UNIFORM_MAT4_BYTESIZE = 16 * sizeof(float);
+
+const size_t INDEX_ELEMENT_LENGTH = 6;
+
+const size_t BYTE_PER_ELEMENT = sizeof(float);
+const size_t BYTE_PER_U16_ELEMENT = sizeof(uint16_t);
+
+const int ITEM_CONTENT_TYPE_SPRITE = 1;
+const int ITEM_CONTENT_TYPE_PARTICLE = 2;
+const int ITEM_CONTENT_TYPE_CALCULATE = 3;
+const int ITEM_CONTENT_TYPE_INTERACT = 4;
+const int ITEM_CONTENT_TYPE_PLUGIN = 5;
+const int ITEM_CONTENT_TYPE_FILTER = 8;
+
+const int ITEM_CONTENT_TYPE_MODEL_MESH = 10001;
+const int ITEM_CONTENT_TYPE_MODEL_TREE = 10002;
+const int ITEM_CONTENT_TYPE_MODEL_SKYBOX = 10003;
+const int ITEM_CONTENT_TYPE_MODEL_LIGHT = 10004;
+const int ITEM_CONTENT_TYPE_MODEL_CAMERA = 10005;
+
+const int CAMERA_CLIP_MODE_VERTICAL = 1;
+const int CAMERA_CLIP_MODE_NORMAL = 0;
+
+#define VFX_ITEM_TYPE_BASE "0"
+#define VFX_ITEM_TYPE_SPRITE "1"
+#define VFX_ITEM_TYPE_PARTICLE "2"
+#define VFX_ITEM_TYPE_NULL "3"
+#define VFX_ITEM_TYPE_INTERACT "4"
+#define VFX_ITEM_TYPE_PLUGIN "5"
+#define VFX_ITEM_TYPE_3D "6"
+#define VFX_ITEM_TYPE_COMPOSITION "7"
+#define VFX_ITEM_TYPE_FILTER_SPRITE "8"
+#define VFX_ITEM_TYPE_MODEL "9"
+#define VFX_ITEM_TYPE_TREE "tree"
+
+#define MN_ERROR_EGL_CREATE_CONTEXT "eglerror_create_fail"
+
+const int EVENT_TYPE_STATISTICS = 1;
+const int EVENT_TYPE_START = 2;
+const int EVENT_TYPE_THREAD_START = 3;
+const int EVENT_TYPE_THREAD_END = 4;
+const int EVENT_TYPE_ANIMATION_END = 5;
+const int EVENT_TYPE_INTERACT_MESSAGE_BEGIN = 6;
+const int EVENT_TYPE_INTERACT_MESSAGE_END = 7;
+const int EVENT_TYPE_EGL_INIT_ERROR = 100;
+const int EVENT_TYPE_RUNTIME_ERROR = 101;
+
+const int SPRITE_VERTEX_STRIDE = 6;
+
+#define INTERACT_TYPE_MESSAGE (1)
+
+#define MN_THREAD_NAME "MarsThread"
+
+#define PLUGIN_AR_TRACK "arTrack"
+
+}
+
+#endif /* constant_hpp */
