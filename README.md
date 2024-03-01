@@ -1,5 +1,5 @@
 # Galacean Effects Native
-Galacean Effects Native is an animation rendering engine targeting mobile platform(Android & iOS), which shares the same [Galacean Effects format](https://github.com/galacean/effects-specification) and [Galacean Effects Studio](https://huoxing.alipay.com/) workflow.
+Galacean Effects Native is an animation rendering engine targeting mobile platform(Android & iOS), which shares the same [Galacean Effects format](https://github.com/galacean/effects-specification) and [Galacean Effects Studio](https://galacean.antgroup.com/effects/) workflow.
 
 
 ## Features
